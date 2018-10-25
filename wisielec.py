@@ -35,9 +35,6 @@ def chooseWord(wordlist):
     return random.choice(wordlist)
 
 
-wordlist = loadWords()
-
-
 def isWordGuessed(secretWord, lettersGuessed):
     '''
     secretWord: string, the word the user is guessing
@@ -132,5 +129,6 @@ def hangman(secretWord):
         print('Sorry, you ran out of guesses. The word was ' + secretWord)
 
 
+wordlist = loadWords()
 secretWord = chooseWord(wordlist).lower()
 hangman(secretWord)
