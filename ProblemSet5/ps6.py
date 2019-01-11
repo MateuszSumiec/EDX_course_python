@@ -102,12 +102,12 @@ class Message(object):
         '''
         
         alphabet = string.ascii_lowercase + string.ascii_uppercase
-        shifted_lower = string.ascii_lowercase[len(string.ascii_lowercase)-shift:] + string.ascii_lowercase[:len(string.ascii_lowercase)-shift]
-        shifted_upper = string.ascii_uppercase[len(string.ascii_uppercase)-shift:] + string.ascii_uppercase[:len(string.ascii_uppercase)-shift]
+        shifted_lower = string.ascii_lowercase[shift:] + string.ascii_lowercase[:shift]
+        shifted_upper = string.ascii_uppercase[shift:] + string.ascii_uppercase[:shift]
         
         return dict(zip(alphabet, shifted_lower+shifted_upper))
     
-    
+
     def apply_shift(self, shift):
         '''
         Applies the Caesar Cipher to self.message_text with the input shift.
@@ -217,6 +217,10 @@ class CiphertextMessage(Message):
         pass #delete this line and replace with your code here
 
 #Example test case (PlaintextMessage)
+mes = Message(string.ascii_lowercase)
+
+print(mes.apply_shift(3))       
+        
 plaintext = PlaintextMessage('hello', 2)
 print('Expected Output: jgnnq')
 print('Actual Output:', plaintext.get_message_text_encrypted())
