@@ -145,7 +145,7 @@ class PlaintextMessage(Message):
         Hint: consider using the parent class constructor so less 
         code is repeated
         '''
-        super(PlaintextMessage, self).__init__(self)
+        super().__init__(text)
         self.shift = shift
 
     def get_shift(self):
@@ -227,6 +227,8 @@ class CiphertextMessage(Message):
 plaintext = PlaintextMessage('hello', 2)
 print(plaintext.get_shift())
 print(plaintext.get_encrypting_dict())
+print(plaintext.message_text)
+
 plaintext.change_shift(3)
 print(plaintext.get_shift())
 print(plaintext.get_encrypting_dict())
