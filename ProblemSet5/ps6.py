@@ -236,12 +236,11 @@ class CiphertextMessage(Message):
 
         return best[1:]
 
-plaintext = PlaintextMessage("Mjqqt ymjwj hfuyfns Lwjantzx", 21)
-print("message text", plaintext.message_text)
-print("message encrypted", plaintext.get_message_text_encrypted())
-print()
 
-# Example test case (CiphertextMessage)
-#ciphertext = CiphertextMessage('jgnnq')
-#print('Expected Output:', (24, 'hello'))
-#print('Actual Output:', ciphertext.decrypt_message())
+print(get_story_string())
+
+def decrypt_story():
+    ciphertext = CiphertextMessage(get_story_string())
+    return ciphertext.decrypt_message()
+
+print(decrypt_story())
