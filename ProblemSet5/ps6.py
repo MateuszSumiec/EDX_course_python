@@ -147,6 +147,8 @@ class PlaintextMessage(Message):
         '''
         super().__init__(text)
         self.shift = shift
+        self.encrypting_dict = self.build_shift_dict(self.shift)
+        self.message_text_encrypted = self.apply_shift(self.shift)
 
     def get_shift(self):
         '''
@@ -162,7 +164,7 @@ class PlaintextMessage(Message):
         
         Returns: a COPY of self.encrypting_dict
         '''
-        return self.build_shift_dict(self.shift).copy()
+        return self.encrypting_dict.copy()
 
     def get_message_text_encrypted(self):
         '''
@@ -170,7 +172,7 @@ class PlaintextMessage(Message):
         
         Returns: self.message_text_encrypted
         '''
-        return self.apply_shift(self.shift)
+        return self.message_text_encrypted
 
     def change_shift(self, shift):
         '''
@@ -184,7 +186,8 @@ class PlaintextMessage(Message):
         Returns: nothing
         '''
         self.shift = shift
-        return self.shift
+        self.encrypting_dict = self.build_shift_dict(shift)
+        self.message_text_encrypted = self.apply_shift(shift)
 
 
 class CiphertextMessage(Message):
@@ -224,14 +227,17 @@ class CiphertextMessage(Message):
 # print(mes.apply_shift(3))
 # print()
 
-plaintext = PlaintextMessage('hello', 2)
+plaintext = PlaintextMessage("1.hello!!", 2)
 print(plaintext.get_shift())
 print(plaintext.get_encrypting_dict())
 print(plaintext.message_text)
 
-plaintext.change_shift(3)
+print(plaintext.get_message_text_encrypted())
+
+plaintext.change_shift(15)
 print(plaintext.get_shift())
 print(plaintext.get_encrypting_dict())
+print(plaintext.get_message_text_encrypted())
 
 
 # print(plaintext.get_message_text_encrypted())
