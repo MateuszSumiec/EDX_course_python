@@ -1,2 +1,2 @@
 # EDX_course_python
-My answers to some exercises form this course
+Solved problem sets from different weeks of this course. My each solution reached maximum grade.
