@@ -100,7 +100,7 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to 
                  another letter (string). 
         '''
-        
+        # your code here
         alphabet = string.ascii_lowercase + string.ascii_uppercase
         shifted_lower = string.ascii_lowercase[shift:] + string.ascii_lowercase[:shift]
         shifted_upper = string.ascii_uppercase[shift:] + string.ascii_uppercase[:shift]
@@ -120,6 +120,7 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
+        # your code here
         ceasar_dict = self.build_shift_dict(shift).copy()
         message_shifted = []
         for letter in self.message_text:
